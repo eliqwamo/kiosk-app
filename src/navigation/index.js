@@ -8,6 +8,7 @@ import DashboardScreen from "../screens/dashboard";
 import CartScreen from "../screens/cart";
 import MenuScreen from "../screens/menu";
 import StoresScreen from "../screens/stores";
+import StoresDetailsScreen from "../screens/stores/storeDetails";
 
 const DashboardStackNavigator = createStackNavigator();
 const CartStackNavigator = createStackNavigator();
@@ -46,6 +47,7 @@ export const StoresStack = () => {
   return (
     <StoresStackNavigator.Navigator>
       <StoresStackNavigator.Screen name="Stores" component={StoresScreen} />
+      <StoresStackNavigator.Screen name="StoreDetails" component={StoresDetailsScreen} />
     </StoresStackNavigator.Navigator>
   );
 };

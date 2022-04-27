@@ -1,18 +1,22 @@
 import React, {useEffect,useState,useCallback} from 'react';
 import {View, Text, FlatList, ActivityIndicator} from 'react-native';
 import { useDispatch, useSelector } from "react-redux";
+import StoreItem from '../../components/StoreItem';
+
 
 const Stores = props => {
 
     const allStores = useSelector((state) => state.allStores);
-    console.log('NEW STORES: ' + JSON.stringify(allStores));
-    console.log('NEW STORES LENGTH: ' + JSON.stringify(allStores.allStores.stores.length));
 
     return(
-        <View>
+        <View style={{padding:20}}>
             {
                 allStores.allStores.stores.length > 0 ? (
-                    <Text>111</Text>
+                    <FlatList
+                        data={allStores.allStores.stores}
+                        keyExtractor={item => item._id}
+                        renderItem={store => <StoreItem store = {store.item} onClick={() => {props.navigation.navigate("StoreDetails")}} />}
+                    />
                 ) : (
                     <Text>222</Text>
                 )
